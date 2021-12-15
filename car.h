@@ -1,3 +1,6 @@
+#ifndef CAR
+#define CAR
+
 #include "item.h"
 
 class Car : public Item //Publicly inherits from Item
@@ -9,3 +12,5 @@ private:
     std::string make;
     std::string model;
 };
+
+#endif // ending the definition of CAR

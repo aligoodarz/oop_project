@@ -1,3 +1,6 @@
+#ifndef ITEM
+#define ITEM
+
 #include <string>
 
 class Item
@@ -24,3 +27,5 @@ public:
     //--------------Other methods--------------
     virtual void printInfo(); //This is a virtual method and will be changed for each derived class
 };
+
+#endif // ending the definition of ITEM
