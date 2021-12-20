@@ -1,5 +1,5 @@
-#ifndef CAR
-#define CAR
+#ifndef _CAR_H
+#define _CAR_H
 
 #include "item.h"
 
