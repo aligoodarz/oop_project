@@ -34,11 +34,13 @@ bool Shop::verifyUser(std::string username, std::string password)
 void Shop::adminMenu()
 {
     std::cout << "------ADMIN MENU------" << std::endl;
+    std::cout << "Please enter one of the following numbers" << std::endl;
 }
 
 void Shop::userMenu()
 {
     std::cout << "------USER MENU------" << std::endl;
+    std::cout << "Please enter one of the following numbers" << std::endl;
 }
 
 void Shop::mainMenu()

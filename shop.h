@@ -35,35 +35,6 @@ private:
     void userMenu();
     void mainMenu();
     void login();
-    //       std::cout << "Please enter username" << std::endl;
-    //       std::cin >> userInput;
-    //       if ("0" == userInput)
-    //       {
-    //           quit = true;
-    //           state = MainMenu;
-    //           return;
-    //       }
-    //       else
-    //       {
-    //           username = userInput;
-    //       }
-    //       std::cout << "Please enter password" << std::endl;
-    //       std::cin >> userInput;
-    //       if ("0" == userInput)
-    //       {
-    //           quit = true;
-    //           state = MainMenu;
-    //           return;
-    //       }
-    //       else
-    //       {
-    //           password = userInput;
-    //       }
-    //
-    //       if (quit)
-    //       {
-    //           state = MainMenu;
-    //       }
 };
 
 #endif
