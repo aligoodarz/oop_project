@@ -1,20 +1,29 @@
-#include <iostream>
-#include <map>
-#include <string>
-#include "item.h"
+#include "database.h"
 
 //Will implement a linked list here.
-//This will be done to reinforce the ideas that were learned while exploring linked lists.
-class Node
-{
-  Item::Item element; //Element is an object of type Item
-  Node *next;         //Pointer to the next Item
-};
 
-class Database
-{
-private:
-  std::map<int, std::string> database;
+Database::Database() : head(NULL) {}
 
-public:
-};
+bool Database::empty() const { return (head == NULL); }
+
+Database::~Database()
+{
+  while (!empty())
+    removeFront();
+}
+
+const Placeholder& Database::front() const
+{
+  return head->element;
+}
+
+void Database::addFront(const Placeholder &item)
+{
+  ItemNode *newNode = new ItemNode; //Create a new node to store the  variable in
+}
+
+void Database::removeFront() {
+  ItemNode* old = head;
+  head = old->next;
+  delete old;
+}
