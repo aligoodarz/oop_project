@@ -1,4 +1,5 @@
 #include "database.h"
+#include <iostream>
 
 //Will implement a linked list here.
 
@@ -12,18 +13,59 @@ Database::~Database()
     removeFront();
 }
 
-const Placeholder& Database::front() const
+const Item &Database::front() const
 {
-  return head->element;
+  return head->item;
 }
 
-void Database::addFront(const Placeholder &item)
+void Database::addFront(const Item &newItem)
 {
   ItemNode *newNode = new ItemNode; //Create a new node to store the  variable in
+  newNode->item = newItem;
+  newNode->next = head;
+  head = newNode;
 }
 
-void Database::removeFront() {
-  ItemNode* old = head;
+void Database::removeFront()
+{
+  ItemNode *old = head;
   head = old->next;
   delete old;
+}
+
+// std::ostream &operator<<(std::ostream &os, const Database &d)
+// {
+//   ItemNode *temp;
+//   temp = head;
+//   if (d.empty())
+//   {
+//     os << "Database is empty";
+//   }
+//   else
+//   {
+//     os << "Members are: ";
+//     while (d.head != NULL)
+//     {
+//     }
+//   }
+//   return os;
+// }
+
+void Database::display() const
+{
+  if (this->empty())
+  {
+    std::cout << "The database is empty" << std::endl;
+  }
+  else
+  {
+    ItemNode *temp;
+    temp = head;
+    std::cout << "The members are: " << std::endl;
+    while (temp != NULL)
+    {
+      std::cout << temp->item.getName() << std::endl;
+      temp = temp->next;
+    }
+  }
 }

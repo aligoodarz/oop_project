@@ -1,13 +1,12 @@
 #include "item.h"
 #include <string>
-
-typedef std::string Placeholder; //Placeholder for now
+#include <iostream>
 
 class ItemNode
 {
 private:
-    Placeholder element; //Element is an object of type Item
-    ItemNode *next;      //Pointer to the next Item
+    Item item;      //Element is an object of type Item
+    ItemNode *next; //Pointer to the next Item
 
     friend class Database;
 };
@@ -15,12 +14,15 @@ private:
 class Database
 {
 public:
-    Database();                             //Empty List Constructor
-    ~Database();                            //Destructor
-    bool empty() const;                     //Check if list is empty
-    const Placeholder &front() const;       //Get the front element in the list
-    void addFront(const Placeholder &item); //Add to the front of list
-    void removeFront();                     //Remove front item
+    Database();                      //Empty List Constructor
+    ~Database();                     //Destructor
+    bool empty() const;              //Check if list is empty
+    const Item &front() const;       //Get the front element in the list
+    void addFront(const Item &item); //Add to the front of list
+    void removeFront();              //Remove front item
+    // friend std::ostream &operator<<(std::ostream &os, const Database &d);
+    void display() const; //Displays the items in the database
+
 private:
     ItemNode *head; //Pointer to the head of the list
 };

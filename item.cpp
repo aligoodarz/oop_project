@@ -3,11 +3,12 @@
 
 #include "item.h"
 
+Item::Item() {}                                                                               //default constructor
 Item::Item(std::string name, int count, float cost) : name(name), count(count), cost(cost) {} //constructor
 
 /* Getters and Setters
 -------------------------------------------*/
-std::string Item::getName() { return name; }
+std::string Item::getName() const { return name; }
 void Item::setName(std::string name) { this->name = name; }
 
 int Item::getCount() { return count; }
