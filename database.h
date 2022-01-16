@@ -1,3 +1,6 @@
+#ifndef _DATABASE_H_
+#define _DATABASE_H_
+
 #include "item.h"
 #include <string>
 #include <iostream>
@@ -26,3 +29,5 @@ public:
 private:
     ItemNode *head; //Pointer to the head of the list
 };
+
+#endif

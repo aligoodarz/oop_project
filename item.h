@@ -18,15 +18,15 @@ public:
     std::string getName() const;
     void setName(std::string name);
 
-    int getCount();
+    int getCount() const;
     void setCount(int count);
 
-    float getCost();
+    float getCost() const;
     void setCost(float cost);
     //-----------------------------------------
 
     //--------------Other methods--------------
-    virtual void printInfo(); //This is a virtual method and will be changed for each derived class
+    virtual void printInfo() const; //This is a virtual method and will be changed for each derived class
 };
 
 #endif // ending the definition of ITEM

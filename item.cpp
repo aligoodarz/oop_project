@@ -11,15 +11,15 @@ Item::Item(std::string name, int count, float cost) : name(name), count(count), 
 std::string Item::getName() const { return name; }
 void Item::setName(std::string name) { this->name = name; }
 
-int Item::getCount() { return count; }
+int Item::getCount() const { return count; }
 void Item::setCount(int count) { this->count = count; }
 
-float Item::getCost() { return cost; }
+float Item::getCost() const { return cost; }
 void Item::setCost(float cost) { this->cost = cost; }
 //-------------------------------------------
 
 //---------------Other Methods-------------------
-void Item::printInfo()
+void Item::printInfo() const
 {
     std::cout << "Name:    " << name << std::endl
               << "Count:    " << count << std::endl
