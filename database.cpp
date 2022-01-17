@@ -24,6 +24,7 @@ void Database::addFront(const Item &newItem)
   // newNode->item = newItem;
   // newNode->next = head;
   head = newNode;
+  count++;
 }
 
 void Database::add(const Item &item, int pos)
@@ -43,6 +44,7 @@ void Database::add(const Item &item, int pos)
     // newNode->next = temp->next;
     temp->next = newNode;
   }
+  count++;
 }
 
 void Database::add_dummy(const Item &item, int pos)
@@ -59,6 +61,7 @@ void Database::add_dummy(const Item &item, int pos)
   // newNode->next = temp->next;
   temp->next = newNode;
   head = fakeHead.next;
+  count++;
 }
 
 void Database::removeFront()
@@ -66,13 +69,11 @@ void Database::removeFront()
   ItemNode *old = head;
   head = old->next;
   delete old;
+  count--;
 }
 
 void Database::remove(int pos) //When I try to remove 0 everything goes away.
 {
-  // if (pos == 0){
-  //   removeFront();
-  // }else{
   ItemNode fakeHead = *head;
   fakeHead.next = head;
   ItemNode *temp = &fakeHead;
@@ -86,26 +87,8 @@ void Database::remove(int pos) //When I try to remove 0 everything goes away.
   temp->next = nthNode->next; //(n+1)th node
   head = fakeHead.next;
   delete nthNode;
-  // }
+  count--;
 }
-
-// std::ostream &operator<<(std::ostream &os, const Database &d)
-// {
-//   ItemNode *temp;
-//   temp = head;
-//   if (d.empty())
-//   {
-//     os << "Database is empty";
-//   }
-//   else
-//   {
-//     os << "Members are: ";
-//     while (d.head != NULL)
-//     {
-//     }
-//   }
-//   return os;
-// }
 
 void Database::display() const
 {
@@ -128,12 +111,5 @@ void Database::display() const
 
 int Database::size() const
 {
-  int count = 0;
-  ItemNode *temp = head;
-  while ((head != nullptr) && (temp != nullptr))
-  {
-    temp = temp->next;
-    count++;
-  }
   return count;
 }

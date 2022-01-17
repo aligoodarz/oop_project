@@ -36,7 +36,7 @@ public:
 
 private:
     ItemNode *head; //Pointer to the head of the list
-    
+    int count = 0;  //Stores the count of elements in the list
 };
 
 #endif
