@@ -125,3 +125,15 @@ void Database::display() const
     }
   }
 }
+
+int Database::size() const
+{
+  int count = 0;
+  ItemNode *temp = head;
+  while ((head != nullptr) && (temp != nullptr))
+  {
+    temp = temp->next;
+    count++;
+  }
+  return count;
+}
