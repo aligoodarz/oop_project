@@ -7,6 +7,7 @@ class Car : public Item //Publicly inherits from Item
 {
 public:
     Car(std::string name, int count, float cost, std::string make, std::string model); //Constructor
+    void printInfo() const;
 
 private:
     std::string make;
