@@ -84,7 +84,7 @@ void Database::remove(int pos) //When I try to remove 0 everything goes away.
   }
   ItemNode *nthNode = temp->next;
   temp->next = nthNode->next; //(n+1)th node
-
+  head = fakeHead.next;
   delete nthNode;
   // }
 }

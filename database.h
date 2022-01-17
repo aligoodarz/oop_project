@@ -36,6 +36,7 @@ public:
 
 private:
     ItemNode *head; //Pointer to the head of the list
+    
 };
 
 #endif
