@@ -21,7 +21,8 @@ void Item::setCost(float cost) { this->cost = cost; }
 //---------------Other Methods-------------------
 void Item::printInfo() const
 {
-    std::cout << "Name:    " << name << std::endl
+    std::cout << "----------------" << std::endl
+              << "Name:    " << name << std::endl
               << "Count:    " << count << std::endl
               << "Cost:    " << cost << std::endl;
 }
