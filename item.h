@@ -13,7 +13,7 @@ private:
 public:
     Item();                                        //Default constructor
     Item(std::string name, int count, float cost); //Constructor
-
+    
     //------------Getters and Setters----------
     std::string getName() const;
     void setName(std::string name);
