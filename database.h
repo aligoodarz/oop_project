@@ -8,6 +8,7 @@
 class ItemNode
 {
     ItemNode(const Item &item, ItemNode *next) : item(item), next(next) {}
+    // ItemNode(ItemNode *next) : next(next) {}
 
 private:
     const Item &item; //Element is an object of type Item
@@ -28,8 +29,8 @@ public:
     // friend std::ostream &operator<<(std::ostream &os, const Database &d);
     void display() const; //Displays the items in the database
     const Item &at(int i) const;
-    void remove(int i);
-    void add(const Item &item, int i);
+    void remove(int pos); //Generic remove function for any item in the list
+    void add(const Item &item, int pos);
     int size() const;
     void add_dummy(const Item &item, int pos);
 

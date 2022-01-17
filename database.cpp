@@ -68,6 +68,27 @@ void Database::removeFront()
   delete old;
 }
 
+void Database::remove(int pos) //When I try to remove 0 everything goes away.
+{
+  // if (pos == 0){
+  //   removeFront();
+  // }else{
+  ItemNode fakeHead = *head;
+  fakeHead.next = head;
+  ItemNode *temp = &fakeHead;
+
+  pos++;
+  for (int i = 0; i < pos - 1; i++)
+  {
+    temp = temp->next; //Points to (n-1)th node
+  }
+  ItemNode *nthNode = temp->next;
+  temp->next = nthNode->next; //(n+1)th node
+
+  delete nthNode;
+  // }
+}
+
 // std::ostream &operator<<(std::ostream &os, const Database &d)
 // {
 //   ItemNode *temp;
