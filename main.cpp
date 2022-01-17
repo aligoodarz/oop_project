@@ -20,6 +20,13 @@ int main()
     Database database;
     database.display();
     database.addFront(test_item);
+    database.display();
     database.addFront(test_item_2);
+    database.display();
+    test_item_2.setName("Nazli");
+    database.display();
+    database.removeFront();
+    database.display();
+    database.removeFront();
     database.display();
 }

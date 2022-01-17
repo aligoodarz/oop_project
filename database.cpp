@@ -3,7 +3,7 @@
 
 //Will implement a linked list here.
 
-Database::Database() : head(NULL) {}
+Database::Database() : head(nullptr) {}
 
 bool Database::empty() const { return (head == NULL); }
 
@@ -64,7 +64,7 @@ void Database::display() const
     std::cout << "The members are: " << std::endl;
     while (temp != NULL)
     {
-      std::cout << temp->item.getName() << std::endl;
+      (temp->item).printInfo();
       temp = temp->next;
     }
   }
