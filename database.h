@@ -7,9 +7,11 @@
 
 class ItemNode
 {
+    ItemNode(const Item &item, ItemNode *next) : item(item), next(next) {}
+
 private:
-    Item item;      //Element is an object of type Item
-    ItemNode *next; //Pointer to the next Item
+    const Item &item; //Element is an object of type Item
+    ItemNode *next;   //Pointer to the next Item
 
     friend class Database;
 };
@@ -25,6 +27,11 @@ public:
     void removeFront();              //Remove front item
     // friend std::ostream &operator<<(std::ostream &os, const Database &d);
     void display() const; //Displays the items in the database
+    const Item &at(int i) const;
+    void remove(int i);
+    void add(const Item &item, int i);
+    int size() const;
+    void add_dummy(const Item &item, int pos);
 
 private:
     ItemNode *head; //Pointer to the head of the list

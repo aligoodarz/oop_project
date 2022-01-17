@@ -1,9 +1,9 @@
 #include "database.h"
 #include <iostream>
 
-//Will implement a linked list here.
-
 Database::Database() : head(nullptr) {}
+
+// ItemNode::ItemNode(const Item &item, ItemNode *next) : item(Item(item)), next(next) {}
 
 bool Database::empty() const { return (head == NULL); }
 
@@ -20,10 +20,45 @@ const Item &Database::front() const
 
 void Database::addFront(const Item &newItem)
 {
-  ItemNode *newNode = new ItemNode; //Create a new node to store the  variable in
-  newNode->item = newItem;
-  newNode->next = head;
+  ItemNode *newNode = new ItemNode(newItem, head); //Create a new node to store the  variable in
+  // newNode->item = newItem;
+  // newNode->next = head;
   head = newNode;
+}
+
+void Database::add(const Item &item, int pos)
+{
+  ItemNode *temp = head;
+  if (pos == 0)
+  {
+    addFront(item);
+  }
+  else
+  {
+    for (int i = 0; i < (pos - 1); i++)
+    {
+      temp = temp->next;
+    }
+    ItemNode *newNode = new ItemNode(item, temp->next);
+    // newNode->next = temp->next;
+    temp->next = newNode;
+  }
+}
+
+void Database::add_dummy(const Item &item, int pos)
+{
+  ItemNode fakeHead(item, nullptr);
+  fakeHead.next = head;
+  ItemNode *temp = &fakeHead;
+  pos++;
+  for (int i = 0; i < pos - 1; i++)
+  {
+    temp = temp->next;
+  }
+  ItemNode *newNode = new ItemNode(item, temp->next);
+  // newNode->next = temp->next;
+  temp->next = newNode;
+  head = fakeHead.next;
 }
 
 void Database::removeFront()
