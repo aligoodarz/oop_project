@@ -70,7 +70,7 @@ void Database::removeFront()
   count--;
 }
 
-void Database::remove(int pos)
+void Database::removeAt(int pos)
 {
   ItemNode fakeHead = *head;
   fakeHead.next = head;
@@ -87,6 +87,21 @@ void Database::remove(int pos)
   delete nthNode;
   count--;
 }
+
+// void Database::remove(std::string name) //This function deletes an item based on the item name, it deletes the first instance of that item name
+// {
+//   ItemNode fakeHead = *head;
+//   fakeHead.next = head;
+//   ItemNode *temp = &fakeHead;
+//   ItemNode prev = *head;
+//   prev.next = nullptr;
+//   while (temp != nullptr){
+//     if (temp->item.getName() == name){
+//       prev.next = temp->next;
+//     }
+//     prev = temp;
+//     temp = temp->next;
+//   }
 
 void Database::display() const
 {
