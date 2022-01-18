@@ -8,7 +8,6 @@
 class ItemNode
 {
     ItemNode(const Item &item, ItemNode *next) : item(item), next(next) {}
-    // ItemNode(ItemNode *next) : next(next) {}
 
 private:
     const Item &item; //Element is an object of type Item
@@ -26,13 +25,12 @@ public:
     const Item &front() const;       //Get the front element in the list
     void addFront(const Item &item); //Add to the front of list
     void removeFront();              //Remove front item
-    // friend std::ostream &operator<<(std::ostream &os, const Database &d);
-    void display() const; //Displays the items in the database
+    void display() const;            //Displays the items in the database
     const Item &at(int i) const;
-    void remove(int pos); //Generic remove function for any item in the list
-    void add(const Item &item, int pos);
-    int size() const;
-    void add_dummy(const Item &item, int pos);
+    void remove(int pos);                      //Generic remove function for any item in the list
+    void add(const Item &item, int pos);       //This is the add function without a FakeZero value
+    int size() const;                          //Returns the number of elements in the database
+    void add_dummy(const Item &item, int pos); //This is the add function with the FakeZero value
 
 private:
     ItemNode *head; //Pointer to the head of the list

@@ -21,8 +21,6 @@ const Item &Database::front() const
 void Database::addFront(const Item &newItem)
 {
   ItemNode *newNode = new ItemNode(newItem, head); //Create a new node to store the  variable in
-  // newNode->item = newItem;
-  // newNode->next = head;
   head = newNode;
   count++;
 }
@@ -30,7 +28,7 @@ void Database::addFront(const Item &newItem)
 void Database::add(const Item &item, int pos)
 {
   ItemNode *temp = head;
-  if (pos == 0)
+  if (pos == 0) //handle special case of zero
   {
     addFront(item);
   }
@@ -49,10 +47,10 @@ void Database::add(const Item &item, int pos)
 
 void Database::add_dummy(const Item &item, int pos)
 {
-  ItemNode fakeHead(item, nullptr);
-  fakeHead.next = head;
+  ItemNode fakeHead(item, nullptr); //Create fakehead to point to the real head
+  fakeHead.next = head;             //Point it to the real head
   ItemNode *temp = &fakeHead;
-  pos++;
+  pos++; //increment pos because of the fake head
   for (int i = 0; i < pos - 1; i++)
   {
     temp = temp->next;
@@ -72,7 +70,7 @@ void Database::removeFront()
   count--;
 }
 
-void Database::remove(int pos) //When I try to remove 0 everything goes away.
+void Database::remove(int pos)
 {
   ItemNode fakeHead = *head;
   fakeHead.next = head;
