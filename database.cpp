@@ -70,7 +70,7 @@ void Database::removeFront()
   count--;
 }
 
-void Database::removeAt(int pos)
+void Database::remove(int pos)
 {
   ItemNode fakeHead = *head;
   fakeHead.next = head;
@@ -83,25 +83,37 @@ void Database::removeAt(int pos)
   }
   ItemNode *nthNode = temp->next;
   temp->next = nthNode->next; //(n+1)th node
-  head = fakeHead.next;
   delete nthNode;
+  head = fakeHead.next;
   count--;
 }
 
-// void Database::remove(std::string name) //This function deletes an item based on the item name, it deletes the first instance of that item name
-// {
-//   ItemNode fakeHead = *head;
-//   fakeHead.next = head;
-//   ItemNode *temp = &fakeHead;
-//   ItemNode prev = *head;
-//   prev.next = nullptr;
-//   while (temp != nullptr){
-//     if (temp->item.getName() == name){
-//       prev.next = temp->next;
-//     }
-//     prev = temp;
-//     temp = temp->next;
-//   }
+void Database::remove(std::string name) //This function deletes an item based on the item name, it deletes the first instance of that item name
+{
+  ItemNode *currNode = head;
+  ItemNode *prevNode = nullptr;
+
+  for (int i = 0; i < count; i++)
+  {
+    if (currNode->item.getName() == name)
+    {
+      if (prevNode == nullptr)
+      {
+        head = currNode->next;
+      }
+      else
+      {
+        prevNode->next = currNode->next;
+      }
+      delete currNode;
+      count--;
+      return;
+    }
+    prevNode = currNode;
+    currNode = currNode->next;
+  }
+  std::cout << name << " was not found in the database" << std::endl;
+}
 
 void Database::display() const
 {

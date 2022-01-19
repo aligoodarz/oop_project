@@ -27,7 +27,7 @@ public:
     void removeFront();              //Remove front item
     void display() const;            //Displays the items in the database
     const Item &at(int i) const;
-    void removeAt(int pos); //Generic remove function for any item in the list
+    void remove(int pos); //Generic remove function for any item in the list
     void remove(std::string name);
     void add(const Item &item, int pos);       //This is the add function without a FakeZero value
     int size() const;                          //Returns the number of elements in the database
