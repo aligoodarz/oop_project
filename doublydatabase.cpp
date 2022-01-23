@@ -1,6 +1,11 @@
 #include "doublydatabase.h"
 
-DoublyDatabase::DoublyDatabase() : header(trailer->prev), trailer(header->next){};
+DoublyDatabase::DoublyDatabase()
+{
+    Item item = Item();
+    header->next = trailer;
+    trailer->prev = header;
+};
 
 void DoublyDatabase::add(const Item &item, int pos)
 {
