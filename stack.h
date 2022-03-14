@@ -1,5 +1,6 @@
 #include <string>
 #include <stdexcept>
+#include <iostream>
 
 template <typename E>
 class Stack
@@ -13,13 +14,12 @@ public:
     Stack(int cap = DEF_CAPACITY);
     int size() const;
     bool empty() const;
-    cost E &top() const throw(StackEmpty);
+    const E &top() const;
     void push(const E &e);
-    void pop() throw(StackEmpty);
-};
+    void pop();
 
-class StackEmpty : public RuntimeException
-{
-public:
-    StackEmpty(const std::string &err) : RuntimeException(err) {}
+private:
+    E *S;         // Array of stack elements
+    int capacity; // Stack capacity
+    int t;        // Top element index
 };
