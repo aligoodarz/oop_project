@@ -28,10 +28,6 @@ int main()
     // database.display();
     // database.remove("Ali");
     // database.display();
-    Tree tree;
-    for (int i = 0; i < 10; i++)
-    {
-        tree.insert(rand() % 100);
-    }
-    tree.printFlat(tree.root);
+
+    
 }
