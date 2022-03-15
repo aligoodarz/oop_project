@@ -1,6 +1,7 @@
 #include <string>
 #include <stdexcept>
 #include <iostream>
+#include <vector>
 
 template <typename E>
 class Stack

@@ -22,3 +22,19 @@ const E &Stack<E>::top() const
         std::cout << "Stack is empty";
     return S[t];
 }
+
+template <typename E>
+void Stack<E>::push(const E &e)
+{
+    if (size() == capacity)
+        std::cout << "Stack is full already";
+    S[++t] = e;
+}
+
+template <typename E>
+void Stack<E>::pop()
+{
+    --t;
+}
+
+// Reverse the elements of a vector
