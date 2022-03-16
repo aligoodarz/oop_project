@@ -1,16 +1,21 @@
 #include "doublydatabase.h"
 
-DoublyDatabase::DoublyDatabase()
-{
-    Item item = Item();
-    header->next = trailer;
-    trailer->prev = header;
-};
+NodeList::Iterator::Iterator(DoublyNode *u) { v = u; }
 
-void DoublyDatabase::add(const Item &item, int pos)
+Elem &NodeList::Iterator::operator*() { return v->elem; }
+
+bool NodeList::Iterator::operator==(const Iterator &p) const { return v == p.v; }
+
+bool NodeList::Iterator::operator!=(const Iterator &p) const { return v != p.v; }
+
+NodeList::Iterator &NodeList::Iterator::operator++()
 {
-    DoublyItemNode *temp = header;
-    for (int i = 0; i < pos; i++)
-    {
-    }
+    v = v->next;
+    return *this;
+}
+
+NodeList::Iterator &NodeList::Iterator::operator--()
+{
+    v = v->prev;
+    return *this;
 }
