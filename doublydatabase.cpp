@@ -42,3 +42,44 @@ NodeList::Iterator NodeList::begin() const
 {
     return Iterator(header->next);
 }
+
+NodeList::Iterator NodeList::end() const
+{
+    return Iterator(trailer);
+}
+
+void NodeList::insert(const NodeList::Iterator &p, const Elem &e)
+{
+    DoublyNode *w = p.v; // Iterator p node
+    DoublyNode *u = w->prev;
+    DoublyNode *v = new DoublyNode; // New node to insert into the list
+
+    v->elem = e;
+    v->next = w;
+    w->prev = v;
+    v->prev = u;
+    u->next = v;
+    n++;
+}
+
+void NodeList::insertFront(const Elem &e)
+{
+    insert(begin(), e);
+}
+
+void NodeList::insertBack(const Elem &e)
+{
+    insert(end(), e);
+}
+
+void NodeList::erase(const Iterator &p)
+{
+    DoublyNode *v = p.v;
+    DoublyNode *w = v->next; // After v
+    DoublyNode *u = v->prev; // Before v
+
+    u->next = w;
+    w->prev = u;
+    delete v;
+    n--;
+}
