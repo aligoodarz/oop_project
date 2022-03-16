@@ -7,3 +7,15 @@ NodeList::Iterator NodeSequence::atIndex(int i) const
         ++p;
     return p;
 }
+
+int NodeSequence::indexOf(const Iterator &p) const
+{
+    Iterator q = begin();
+    int j = 0;
+    while (q != p)
+    {
+        ++q;
+        ++j;
+    }
+    return j;
+}
