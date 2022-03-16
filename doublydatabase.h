@@ -1,34 +1,29 @@
 #ifndef _DOUBLYDATABASE_H_
 #define _DOUBLYDATABASE_H_
 
-#include "item.h"
+// This includes a doubly linked list with an iterator implementation
 
-class DoublyItemNode
+typedef int Elem;
+class DoublyNode
 {
-private:
-    const Item &item;
-    DoublyItemNode *next;
-    DoublyItemNode *prev;
-    DoublyItemNode(const Item &item, DoublyItemNode *next, DoublyItemNode *prev) : item(item), next(next), prev(prev){};
-
-    friend class DoublyDatabase;
+    Elem elem;
+    DoublyNode *prev;
+    DoublyNode *next;
 };
 
-class DoublyDatabase
+class Iterator
 {
 public:
-    DoublyDatabase();
-    ~DoublyDatabase();
-    bool empty() const;
-    void add(const Item &item, int pos);
-    void remove(int pos);
+    Elem &operator*(); // Refrecene to the element
+    bool operator==(const Iterator &p) const;
+    bool operator!=(const Iterator &p) const;
+    Iterator &operator++();
+    Iterator &operator--();
+    friend class NodeList;
 
 private:
-    DoublyItemNode *header;
-    DoublyItemNode *trailer;
-    int count = 0;
+    DoublyNode *v;           // Poiter to the node
+    Iterator(DoublyNode *u); // Create from node
 };
-
-
 
 #endif
