@@ -29,6 +29,24 @@ public:
         DoublyNode *v;           // Poiter to the node
         Iterator(DoublyNode *u); // Create from node
     };
+
+public:
+    NodeList();
+    int size() const;
+    bool empty() const;
+    Iterator begin() const;
+    Iterator end() const;
+    void insertFront(const Elem &e);
+    void insertBack(const Elem &e);
+    void insert(const Iterator &p, const Elem &e);
+    void eraseFront();
+    void eraseBack();
+    void erase(const Iterator &p);
+    // Can add copy and assignment constructor
+private:
+    int n; // Number of items in set
+    DoublyNode *header;
+    DoublyNode *trailer;
 };
 
 #endif
