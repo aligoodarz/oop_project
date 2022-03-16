@@ -83,3 +83,13 @@ void NodeList::erase(const Iterator &p)
     delete v;
     n--;
 }
+
+void NodeList::eraseFront()
+{
+    erase(begin());
+}
+
+void NodeList::eraseBack()
+{
+    erase(--end()); // Because end points to the element outside of the list
+}
