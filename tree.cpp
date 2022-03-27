@@ -12,3 +12,13 @@ void LinkedBinaryTree::addRoot()
     _root = new Node;
     n = 1;
 }
+
+void LinkedBinaryTree::expandExternal(const Position &p)
+{
+    Node *v = p.v;
+    v->left = new Node;
+    v->left->par = v;
+    v->right = new Node;
+    v->right->par = v;
+    n += 2;
+}
