@@ -28,6 +28,4 @@ int main()
     // database.display();
     // database.remove("Ali");
     // database.display();
-
-    
 }

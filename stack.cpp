@@ -36,5 +36,3 @@ void Stack<E>::pop()
 {
     --t;
 }
-
-// Reverse the elements of a vector
